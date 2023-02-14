@@ -39,6 +39,14 @@ class MainActivity : AppCompatActivity() {
         )[UserInfoViewModel::class.java]
 
         mAdapter = UserInfoAdapter()
+
+        mAdapter.setOnItemClick(object : UserInfoAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                mAdapter.notifyItemChanged(position,"Elect")
+            }
+        })
+
+
         mBinding.rvUserInfo.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = mAdapter.withLoadStateFooter(UserInfoLoadingAdapter())

@@ -20,8 +20,8 @@ class UserInfoPagingSource : PagingSource<Int, UserInfo>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UserInfo> {
         return try {
             val currentPage = params.key ?: 1
-            val userInfo = NetWorkUtil.instance?.getUserInfo(currentPage, 3)
-            val nextPage = if (currentPage < userInfo?.totalPages ?: 0) {
+            val userInfo = NetWorkUtil.instance?.getUserInfo(currentPage, 5)
+            val nextPage = if (currentPage < (userInfo?.totalPages ?: 0)) {
                 currentPage + 1
             } else {
                 null
