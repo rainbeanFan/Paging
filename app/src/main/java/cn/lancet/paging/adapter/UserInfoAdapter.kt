@@ -57,8 +57,6 @@ class UserInfoAdapter :
 
         val holder = holder as UserInfoViewHolder
 
-        val data = getItem(position) as UserInfo
-
         val avatarUrl = "https://images.pexels.com/photos/2174974/pexels-photo-2174974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 
         payloads.forEach {
